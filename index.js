@@ -40,9 +40,14 @@ app.use(cors());
 app.use(bodyParser.json({limit: '1mb'}));
 app.use(bodyParser.urlencoded({limit: '1mb', extended: true, parameterLimit:1000}));
 app.use(morgan("dev"));
-app.listen(3000);
+app.listen(8080, () => {
+  console.log(app);
+});
 
-app.get('/stocazzo', (req, res) => res.send('stocazzo ricevuto'));
+app.get('/stocazzo', (req, res) => {
+  console.log('ok');
+  res.send('stocazzo ricevuto')
+});
 
 // If the Node process ends, close the Mongoose connection
 process.on('SIGINT', function() {
