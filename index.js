@@ -40,7 +40,7 @@ app.use(cors());
 app.use(bodyParser.json({limit: '1mb'}));
 app.use(bodyParser.urlencoded({limit: '1mb', extended: true, parameterLimit:1000}));
 app.use(morgan("dev"));
-app.listen(8080, () => {
+app.listen( process.env.PORT || 3000, () => {
   console.log(app);
 });
 
